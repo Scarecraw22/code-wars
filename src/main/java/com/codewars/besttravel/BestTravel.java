@@ -13,12 +13,9 @@ public class BestTravel {
     }
 
     public static Integer chooseBestSum(int t, int k, List<Integer> ls) {
-        System.out.println("Max distance: " + t);
-        System.out.println("Number of Cities: " + k);
-        System.out.println("Cities: " + ls);
         List<List<Integer>> combinations = createCombinations(ls, k);
 
-        Integer result = combinations.stream()
+        return combinations.stream()
                 .map(combination -> combination.stream().reduce(0, Integer::sum))
                 .filter(distance -> distance <= t)
                 .map(distance -> new DistanceWithDiff(distance, Math.abs(t - distance)))
@@ -26,26 +23,7 @@ public class BestTravel {
                 .min(Comparator.comparing(DistanceWithDiff::getDiff))
                 .map(DistanceWithDiff::getDistance)
                 .orElse(null);
-
-        System.out.println("Found result: " + result);
-        return result;
     }
-
-//    private static <T> void subsetsOf(List<T> objects, int k, int index, Set<T> tempSet, List<Set<T>> finalSet) {
-//        if (tempSet.size() == k) {
-//            finalSet.add(new HashSet<>(tempSet));
-//            return;
-//        }
-//        if (index == objects.size())
-//            return;
-//
-//        T object = objects.get(index);
-//        tempSet.add(object);
-//        subsetsOf(objects, k, index+1, tempSet, finalSet);
-//
-//        tempSet.remove(object);
-//        subsetsOf(objects, k, index+1, tempSet, finalSet);
-//    }
 
     public static <T> List<List<T>> createCombinations(List<T> elts, int combinationSize) {
         var fullCombinations = new ArrayList<List<T>>();
@@ -60,11 +38,9 @@ public class BestTravel {
             return;
         }
 
-        // we don't need to go over elts.size() - missing because then the combination cannot be completed, too few left
         for (int i = index; i <= elts.size() - missing; i++) {
             List<T> newCombination;
             if (i == elts.size() - missing) {
-                // optimization: avoid dereferencing the final combination, reuse
                 newCombination = combination;
             } else {
                 newCombination = new ArrayList<T>(combination);
