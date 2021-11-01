@@ -2,6 +2,9 @@ package com.codewars.observedpin;
 
 import java.util.*;
 
+/**
+ * Source: https://www.codewars.com/kata/5263c6999e0f40dee200059d
+ */
 public class ObservedPin {
 
     private static final Map<Character, Set<Character>> PIN_MAP = Map.of(

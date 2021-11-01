@@ -2,6 +2,9 @@ package com.codewars.besttravel;
 
 import java.util.*;
 
+/**
+ * Source: https://www.codewars.com/kata/55e7280b40e1c4a06d0000aa
+ */
 public class BestTravel {
 
     public static void main(String[] args) {

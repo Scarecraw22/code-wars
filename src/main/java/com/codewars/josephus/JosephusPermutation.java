@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Source: https://www.codewars.com/kata/5550d638a99ddb113e0000a2
+ */
 public class JosephusPermutation {
 
     public static void main(String[] args) {

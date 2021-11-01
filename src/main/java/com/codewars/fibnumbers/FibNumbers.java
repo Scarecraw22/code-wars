@@ -1,7 +1,8 @@
 package com.codewars.fibnumbers;
 
-import java.util.Arrays;
-
+/**
+ * Source: https://www.codewars.com/kata/5541f58a944b85ce6d00006a
+ */
 public class FibNumbers {
 
     public static void main(String[] args) {
